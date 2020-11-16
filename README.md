@@ -2,7 +2,7 @@
 <br/>
 Developed a data pipeline for analysing songs which are played by many users depending on their popularity. We use airflow to automate the entire workflow of this project and also monitor the enitre pipeline.<br/>
 
-This project repo contains: 
+<h3>This project repo contains: </h3>
 <br/>
 <br/>
 dags - containing the  Airflow dag code<br/>
