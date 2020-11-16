@@ -1,0 +1,56 @@
+{
+    "parameterstore" : {
+        "dev": {
+            "s3_access": "/user/etl/access",
+            "s3_secret" : "/user/etl/secret"
+        },
+        "prd": {
+            "s3_access": "/user/etl/access",
+            "s3_secret" : "/user/etl/secret"
+        }
+    },
+    "snowflake": {
+        "prd": {
+            "database_name": "PRD_ETL"
+        },
+        "dev": {
+            "database_name": "DEV_ETL"
+        }
+    },
+    "comment" : "----------------------------------------------------------------------------------------------------------------------------------------------------------",
+    "comment" : "    songplay table ",
+    "comment" : "----------------------------------------------------------------------------------------------------------------------------------------------------------",
+    "songplay_table_010_STG": {
+        "sql_file": "sqls/songplay_table_010_stg.sql",
+        "stg_table": "songplay_table_STG"
+    },
+    "songplay_table_020_tgt": {
+        "sql_file": "sqls/songplay_table_020_STG.sql",
+        "stg_table": "songplay_table_STG",
+        "tgt_table": "songplay_table"
+    },
+    "comment" : "----------------------------------------------------------------------------------------------------------------------------------------------------------",
+    "comment" : "    users table ",
+    "comment" : "----------------------------------------------------------------------------------------------------------------------------------------------------------",
+    "users_table_010_STG": {
+        "sql_file": "sqls/users_010_stg.sql",
+        "stg_table": "users_table_STG"
+    },
+    "users_table_020_tgt": {
+        "sql_file": "sqls/users_020_STG.sql",
+        "stg_table": "users_table_STG",
+        "tgt_table": "users_table"
+    },
+    "comment" : "----------------------------------------------------------------------------------------------------------------------------------------------------------",
+    "comment" : "    songs table ",
+    "comment" : "----------------------------------------------------------------------------------------------------------------------------------------------------------",
+    "songs_table_010_STG": {
+        "sql_file": "sqls/songs_010_stg.sql",
+        "stg_table": "songs_table_STG"
+    },
+    "songs_table_020_tgt": {
+        "sql_file": "sqls/songs_020_STG.sql",
+        "stg_table": "songs_table_STG",
+        "tgt_table": "songs_table"
+    }
+}
