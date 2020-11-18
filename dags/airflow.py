@@ -24,7 +24,7 @@ image = 'spark:latest'
 tasks = ['songplay_table_010_STG', 'songplay_table_020_TGT', 'users_table_010_STG', 'users_table_020_TGT', 'songs_table_010_STG', 'songs_table_020_TGT']
 
 container_name = '{{ dag.dag_id }}_{{ ds_nodash }}'
-git_repo = 'datateam_semantic_signals'
+git_repo = 'dataloading_using_airflow'
 
 print("=========================================================================================================================")
 print("dag_id is: " + dag_id)
@@ -34,11 +34,11 @@ print("=========================================================================
 # scheduling
 
 default_args = {
-    'owner': 'sbhattacharjee',
+    'owner': 'shalini.bhat29',
     'start_date': datetime(2020, 9, 21, 20, 0, 0, tzinfo=schedule_tz),
     'retries': 3,
     'retry_delay': timedelta(minutes=10),
-    'email': 'sbhattacharjee@torstar.ca' if env == 'dev' else ['sbhattacharjee@torstar.ca', Variable.get('email_support')],
+    'email': 'shalini.bhat29@gmail.com' if env == 'dev' else ['shalini.bhat29@gmail.com'],
     'email_on_failure': True,
     'email_on_retry': False,
     'depends_on_past': False,
@@ -88,7 +88,7 @@ start_new_container = SSHOperator(
 
 # Git clone
 git_clone_repo = SSHOperator(
-    ssh_conn_id='ssh_docker_server',   task_id='git_clone_repo',   command=f"docker exec {container_name} /bin/bash -c 'cd /environment;git clone -b {branch} git@github.com:SMG-Digital/{git_repo}.git'",   dag=dag
+    ssh_conn_id='ssh_docker_server',   task_id='git_clone_repo',   command=f"docker exec {container_name} /bin/bash -c 'cd /environment;git clone -b {branch} git@github.com:/{git_repo}.git'",   dag=dag
 )
 
 docker_command = {}
