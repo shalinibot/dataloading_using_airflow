@@ -4,7 +4,6 @@ from airflow import DAG
 from airflow.contrib.operators.ssh_operator import SSHOperator
 from airflow.models import Variable
 from airflow.operators.dummy_operator import DummyOperator
-from custom import CronSensor, PrdSensor
 
 # Set Timezone for Schedule Interval and execution
 schedule_tz = pendulum.timezone("Canada/Eastern")
